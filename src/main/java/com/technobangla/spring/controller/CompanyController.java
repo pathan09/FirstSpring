@@ -1,16 +1,12 @@
 package com.technobangla.spring.controller;
 
-import com.technobangla.spring.dao.CompanyDAO;
-import com.technobangla.spring.dao.CompanyDAOImpl;
-import com.technobangla.spring.dao.OrganizationIndustryDAO;
-import com.technobangla.spring.dao.OrganizationTypeDAO;
+import com.technobangla.spring.dao.*;
 import com.technobangla.spring.model.Company;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,6 +24,7 @@ public class CompanyController {
 
     @Autowired
     private CompanyDAO companyDAO;
+
 
     @Autowired
     private OrganizationTypeDAO organizationTypeDAO;
@@ -84,14 +81,31 @@ public class CompanyController {
         return model;
     }
 
+    @RequestMapping(value = "/testData", method = RequestMethod.GET)
+    public @ResponseBody String test(@RequestParam("orgType") int id){
+        //int id = Integer.parseInt(request.getParameter("id"));
+       // OrganizationTypeDAOImpl orgType=new OrganizationTypeDAOImpl(getDataSource());
+        return organizationTypeDAO.get(id).getName();
+    }
+
     public String getOrgType(int id){
 
-
-        organizationTypeDAO.list();
-        return "";
+        OrganizationTypeDAOImpl orgType=new OrganizationTypeDAOImpl(getDataSource());
+        return orgType.get(id).getName();
     }
 
     public String getOrgIndustry(int id){
-        return organizationIndustryDAO.get(id).getName();
+        OrganizationIndustryDAOImpl orgIndustry= new OrganizationIndustryDAOImpl(getDataSource());
+        return orgIndustry.get(id).getName();
+    }
+
+    public DataSource getDataSource() {
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/erpdb");
+        dataSource.setUsername("root");
+        dataSource.setPassword("");
+
+        return dataSource;
     }
 }

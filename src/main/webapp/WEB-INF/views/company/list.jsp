@@ -34,7 +34,15 @@
 					<td>${test.webAddress}</td>
 					<td>${test.phone}</td>
 					<td>${test.establishDate.toString()}</td>
-					<td><%=new com.technobangla.spring.controller.CompanyController().getOrgType(2)%></td>
+					<td>
+						<c:url value = "/company/testData" var = "myURL">
+							<c:param name = "orgType" value = "${test.organizationType}"/>
+						</c:url>
+						<c:import var = "data" url = "${myURL}"/>
+						<%--<c:import var = "data" url = "/company/testData"/>--%>
+						<c:out value = "${data}"/>
+					</td>
+					<%--<td><%=new com.technobangla.spring.controller.CompanyController().getOrgType(2)%></td>--%>
 
 					<td>
 						<a href="edit?id=${test.id}">Edit</a>

@@ -6,6 +6,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
 import java.sql.ResultSet;
@@ -15,6 +16,7 @@ import java.util.List;
 /**
  * Created by Ayakuth Pathan on 13-May-17.
  */
+
 public class OrganizationTypeDAOImpl implements OrganizationTypeDAO {
 
     private JdbcTemplate jdbcTemplate;
