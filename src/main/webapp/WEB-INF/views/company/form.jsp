@@ -54,7 +54,7 @@
 				<td>Organization Type:</td>
 				<td><form:select path="organizationType">
 					<c:forEach items="${orgTypes}" var="org">
-						<option value="${org}">${org.name}</option>
+						<option value="${org.id}">${org.name}</option>
 					</c:forEach>
 				</form:select></td>
 			</tr>
@@ -63,7 +63,7 @@
 				<td>Organization Industry:</td>
 				<td><form:select path="organizationIndustry">
 					<c:forEach items="${orgIndustrys}" var="industry">
-						<option value="${industry}">${industry.name}</option>
+						<option value="${industry.id}">${industry.name}</option>
 					</c:forEach>
 				</form:select></td>
 			</tr>

@@ -43,7 +43,7 @@ public class CompanyController {
     public ModelAndView list(ModelAndView model) throws IOException {
         List<Company> companyList = companyDAO.list();
         model.addObject("companyList", companyList);
-        model.addObject("orgType", companyList);
+        //model.addObject("orgType", companyList);
         model.setViewName("company/list");
 
         return model;
@@ -81,31 +81,15 @@ public class CompanyController {
         return model;
     }
 
-    @RequestMapping(value = "/testData", method = RequestMethod.GET)
+    @RequestMapping(value = "/getOrgType", method = RequestMethod.GET)
     public @ResponseBody String test(@RequestParam("orgType") int id){
-        //int id = Integer.parseInt(request.getParameter("id"));
-       // OrganizationTypeDAOImpl orgType=new OrganizationTypeDAOImpl(getDataSource());
         return organizationTypeDAO.get(id).getName();
     }
 
-    public String getOrgType(int id){
-
-        OrganizationTypeDAOImpl orgType=new OrganizationTypeDAOImpl(getDataSource());
-        return orgType.get(id).getName();
+    @RequestMapping(value = "/getOrgIndustry", method = RequestMethod.GET)
+    public @ResponseBody String getOrgIndustry(@RequestParam("orgIndustry") int id){
+        return organizationIndustryDAO.get(id).getName();
     }
 
-    public String getOrgIndustry(int id){
-        OrganizationIndustryDAOImpl orgIndustry= new OrganizationIndustryDAOImpl(getDataSource());
-        return orgIndustry.get(id).getName();
-    }
 
-    public DataSource getDataSource() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/erpdb");
-        dataSource.setUsername("root");
-        dataSource.setPassword("");
-
-        return dataSource;
-    }
 }

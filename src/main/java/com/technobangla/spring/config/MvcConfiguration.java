@@ -83,4 +83,11 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 	public CompanyDAO getCompanyDAO() {
 		return new CompanyDAOImpl(getDataSource());
 	}
+
+	@Bean
+	public EmployeeDAO getEmployeeDAO() {
+		return new EmployeeDAOImpl(getDataSource());
+	}
+
+
 }
