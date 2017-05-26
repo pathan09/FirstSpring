@@ -32,26 +32,27 @@
 					<td>${test.firstName}</td>
 					<td>${test.lastName}</td>
 					<td>
-						<c:url value = "/employee/getDesignation" var = "myURL">
-							<c:param name = "designationId" value = "${test.designationId}"/>
-						</c:url>
-						<c:import var = "data" url = "${myURL}"/>
-						<c:out value = "${data}"/>
+					<c:url value = "/employee/getDesignation" var = "myURL">
+						<c:param name = "orgIndustry" value = "${test.designationId}"/>
+					</c:url>
+					<c:import var = "data" url = "${myURL}"/>
+					<c:out value = "${data}"/>
 					</td>
 					<td>
-						<c:url value = "/employee/getDepartment" var = "myURL">
-							<c:param name = "departmentId" value = "${test.departmentId}"/>
+						<c:url value = "/employee/getDepartment" var = "myURL1">
+							<c:param name = "orgType" value = "${test.departmentId}"/>
 						</c:url>
-						<c:import var = "data" url = "${myURL}"/>
-						<c:out value = "${data}"/>
+						<c:import var = "data1" url = "${myURL1}"/>
+						<c:out value = "${data1}"/>
 					</td>
-					<%--<td>
-						<c:url value = "/employee/getCompany" var = "myURL">
+					<td>
+						<c:url value = "/employee/getCompany" var = "myURL2">
 							<c:param name = "companyId" value = "${test.companyId}"/>
 						</c:url>
-						<c:import var = "data" url = "${myURL}"/>
-						<c:out value = "${data}"/>
-					</td>--%>
+						<c:import var = "data2" url = "${myURL2}"/>
+						<c:out value = "${data2}"/>
+					</td>
+
 					<td>${test.phone}</td>
 					<td>${test.email}</td>
 

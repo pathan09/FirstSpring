@@ -79,7 +79,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
                     employee.setPhone(rs.getString("phone"));
                     employee.setDesignationId(rs.getInt("designation_id"));
                     employee.setDepartmentId(rs.getInt("department_id"));
-                    employee.setDepartmentId(rs.getInt("company_id"));
+                    employee.setCompanyId(rs.getInt("company_id"));
 
                     return employee;
                 }
@@ -106,7 +106,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
                 employee.setPhone(rs.getString("phone"));
                 employee.setDesignationId(rs.getInt("designation_id"));
                 employee.setDepartmentId(rs.getInt("department_id"));
-                employee.setDepartmentId(rs.getInt("company_id"));
+                employee.setCompanyId(rs.getInt("company_id"));
 
                 return employee;
             }

@@ -34,6 +34,7 @@ public class EmployeeController {
     @Autowired
     private CompanyDAO companyDAO;
 
+
     @ModelAttribute
     public void initValues(Model model) {
 
@@ -84,17 +85,12 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "/getDesignation", method = RequestMethod.GET)
-    public @ResponseBody String getDesignation(@RequestParam("designationId") int id){
-        try {
+    public @ResponseBody String getDesignation(@RequestParam("orgIndustry") int id){
             return designationDAO.get(id).getName();
-        }catch (Exception e){
-           return "";
-        }
-
     }
 
     @RequestMapping(value = "/getDepartment", method = RequestMethod.GET)
-    public @ResponseBody String getDepartment(@RequestParam("departmentId") int id){
+    public @ResponseBody String getDepartment(@RequestParam("orgType") int id){
         return departmentDAO.get(id).getDepartmentName();
     }
 

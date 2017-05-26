@@ -25,7 +25,8 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
 		resolver.setPrefix("/WEB-INF/views/");
 		resolver.setSuffix(".jsp");
-		resolver.setViewClass(org.springframework.web.servlet.view.JstlView.class);
+
+		//resolver.setViewClass(org.springframework.web.servlet.view.JstlView.class);
 		return resolver;
 	}
 	
@@ -87,6 +88,21 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 	@Bean
 	public EmployeeDAO getEmployeeDAO() {
 		return new EmployeeDAOImpl(getDataSource());
+	}
+
+	@Bean
+	public AccountInfoDAO getAccountInfoDAO() {
+		return new AccountInfoDAOImpl(getDataSource());
+	}
+
+	@Bean
+	public AccountContactDAO getAccountContactDAO() {
+		return new AccountContactDAOImpl(getDataSource());
+	}
+
+	@Bean
+	public UserDAO getUserDAO() {
+		return new UserDAOImpl(getDataSource());
 	}
 
 

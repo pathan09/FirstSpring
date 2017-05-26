@@ -10,7 +10,7 @@
     </head>
     <body>
     	<div align="center">
-	        <h1>Department List</h1>
+	        <h1>Company List</h1>
 	        <h3><a href="/company/show">New Company</a></h3>
 	        <table border="1">
 	        	<th>No</th>
