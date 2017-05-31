@@ -37,6 +37,8 @@
         &nbsp;&nbsp;
         <a href="/user/list">User List</a>
         &nbsp;&nbsp;
+        <a href="/leadInfo/list">Lead Info List</a>
+        &nbsp;&nbsp;
     </h3>
 
     <%-- <h3><a href="newContact">New Contact</a></h3>

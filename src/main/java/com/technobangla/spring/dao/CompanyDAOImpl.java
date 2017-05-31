@@ -31,7 +31,7 @@ public class CompanyDAOImpl implements CompanyDAO {
         try {
             return new SimpleDateFormat("dd/MM/yyyy").parse(st);
         } catch (ParseException e) {
-           return null;
+           return new Date();
         }
     }
 

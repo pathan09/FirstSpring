@@ -32,7 +32,7 @@
 				<td>Employee:</td>
 				<td><form:select path="employeeId">
 					<c:forEach items="${employeeList}" var="employee">
-						<option value="${employee.id}">${employee.firstName}&emsp${employee.lastName}</option>
+						<option value="${employee.id}">${employee.firstName}</option>
 					</c:forEach>
 				</form:select></td>
 			</tr>

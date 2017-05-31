@@ -105,5 +105,10 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 		return new UserDAOImpl(getDataSource());
 	}
 
+	@Bean
+	public LeadInfoDAO getLeadInfoDAO() {
+		return new LeadInfoDAOImpl(getDataSource());
+	}
+
 
 }
