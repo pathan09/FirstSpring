@@ -10,15 +10,20 @@ public class LeadInfo {
     private String leadDescription;
     private String initiateDate;
     private int initiateEmployeeId;
+    private String latitude;
+    private String longitude;
 
     public LeadInfo() {
     }
 
-    public LeadInfo(String leadName, String leadDescription, String initiateDate, int initiateEmployeeId) {
+    public LeadInfo(String leadName, String leadDescription, String initiateDate, int initiateEmployeeId,
+                    String latitude, String longitude) {
         this.leadName = leadName;
         this.leadDescription = leadDescription;
         this.initiateDate = initiateDate;
         this.initiateEmployeeId = initiateEmployeeId;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public int getId() {
@@ -59,5 +64,21 @@ public class LeadInfo {
 
     public void setInitiateEmployeeId(int initiateEmployeeId) {
         this.initiateEmployeeId = initiateEmployeeId;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
     }
 }

@@ -18,7 +18,7 @@ import java.util.List;
  */
 
 @Controller
-@RequestMapping("/leadInfo")
+@RequestMapping("/leadInfoWeb")
 public class LeadInfoController {
 
     @Autowired

@@ -45,14 +45,14 @@ public class LeadInfoDAOImpl implements LeadInfoDAO {
     public void saveOrUpdate(LeadInfo leadInfo) {
         if (leadInfo.getId() > 0) {
             // update
-            String sql = "UPDATE lead_info SET name=?, description=?, initiate_date=?, employee_id=? WHERE id=?";
+            String sql = "UPDATE lead_info SET name=?, description=?, initiate_date=?, employee_id=?, latitude=?, longitude=? WHERE id=?";
             jdbcTemplate.update(sql, leadInfo.getLeadName(),leadInfo.getLeadDescription(),getDate(leadInfo.getInitiateDate()),
-                    leadInfo.getInitiateEmployeeId(),leadInfo.getId());
+                    leadInfo.getInitiateEmployeeId(),leadInfo.getLatitude(),leadInfo.getLongitude(),leadInfo.getId());
         } else {
             // insert
-            String sql = "INSERT INTO lead_info ( name, description, initiate_date, employee_id ) VALUES (?, ?, ?, ?)";
+            String sql = "INSERT INTO lead_info ( name, description, initiate_date, employee_id, latitude, longitude ) VALUES (?, ?, ?, ?, ?, ?)";
             jdbcTemplate.update(sql, leadInfo.getLeadName(),leadInfo.getLeadDescription(),getDate(leadInfo.getInitiateDate()),
-                    leadInfo.getInitiateEmployeeId());
+                    leadInfo.getInitiateEmployeeId(),leadInfo.getLatitude(),leadInfo.getLongitude());
         }
 
     }
@@ -79,7 +79,8 @@ public class LeadInfoDAOImpl implements LeadInfoDAO {
                     leadInfo.setLeadDescription(rs.getString("description"));
                     leadInfo.setInitiateDate(new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate("initiate_date")));
                     leadInfo.setInitiateEmployeeId(rs.getInt("employee_id"));
-
+                    leadInfo.setLatitude(rs.getString("latitude"));
+                    leadInfo.setLongitude(rs.getString("longitude"));
                     return leadInfo;
                 }
 
@@ -102,6 +103,8 @@ public class LeadInfoDAOImpl implements LeadInfoDAO {
                 leadInfo.setLeadDescription(rs.getString("description"));
                 leadInfo.setInitiateDate(new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate("initiate_date")));
                 leadInfo.setInitiateEmployeeId(rs.getInt("employee_id"));
+                leadInfo.setLatitude(rs.getString("latitude"));
+                leadInfo.setLongitude(rs.getString("longitude"));
 
                 return leadInfo;
             }
